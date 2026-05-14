@@ -199,10 +199,10 @@ class MainActivity : AppCompatActivity() {
                 longPressRunnable?.let { handler.removeCallbacks(it) }
                 longPressRunnable = null
 
-                when {
-                    isRecording -> stopVideoRecording()
-                    held < LONG_PRESS_MS -> takePhoto()
-                }
+            when {
+                isRecording && held < LONG_PRESS_MS -> stopVideoRecording()
+                !isRecording && held < LONG_PRESS_MS -> takePhoto()
+            }
                 return true
             }
         }
