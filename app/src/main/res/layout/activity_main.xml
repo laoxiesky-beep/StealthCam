@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@android:color/transparent">
+
+    <!-- 相机预览小窗：右下角 -->
+    <FrameLayout
+        android:id="@+id/cameraContainer"
+        android:layout_width="52dp"
+        android:layout_height="52dp"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@drawable/camera_border"
+        android:elevation="10dp">
+
+        <androidx.camera.view.PreviewView
+            android:id="@+id/previewView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <!-- 录像指示点（黄色） -->
+        <View
+            android:id="@+id/recordingIndicator"
+            android:layout_width="8dp"
+            android:layout_height="8dp"
+            android:layout_gravity="top|end"
+            android:layout_margin="3dp"
+            android:background="@drawable/recording_dot"
+            android:visibility="gone"/>
+
+    </FrameLayout>
+
+    <!-- 透明度滑条：默认隐藏，长按预览窗口显示 -->
+    <SeekBar
+        android:id="@+id/seekBarAlpha"
+        android:layout_width="160dp"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_marginEnd="68dp"
+        android:layout_marginBottom="18dp"
+        android:max="100"
+        android:progress="100"
+        android:progressTint="#FFCC00"
+        android:thumbTint="#FFCC00"
+        android:elevation="12dp"
+        android:visibility="gone"/>
+
+    <!-- 错误提示（仅拍照失败时显示） -->
+    <TextView
+        android:id="@+id/toastText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|center_horizontal"
+        android:layout_marginBottom="72dp"
+        android:background="#CC000000"
+        android:textColor="#FFFFFF"
+        android:textSize="12sp"
+        android:paddingHorizontal="14dp"
+        android:paddingVertical="6dp"
+        android:visibility="gone"
+        android:elevation="10dp"/>
+
+</FrameLayout>
